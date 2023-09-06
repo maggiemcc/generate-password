@@ -12,4 +12,4 @@ This project was created to help employees/users, with access to sensitive data,
 [Click to view my deployed portfolio GitHub Page](https://maggiemcc.github.io/generate-password/)
 
 ## Screenshot
-![](./develop/screenshot.png)
+![](./Develop/screenshot.png)
