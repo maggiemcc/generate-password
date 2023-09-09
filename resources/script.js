@@ -2,6 +2,7 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 var password = [];
+var lowercase = "abcdefghijklmnopqrstuvwxyz";
 
 // Write password to the #password input
 function writePassword() {
@@ -13,11 +14,12 @@ function writePassword() {
 
 function generatePassword() {
   passwordLength();
+  passwordLowercase();
 
 }
 
-function passwordLength() {
   // Asks user for desired password length.
+function passwordLength() {
   var userLength = window.prompt("Choose your password length. It must be a minumum of 8 and maximum of 128 characters. Ex: 12");
 
   // Checks for correct length
@@ -32,6 +34,20 @@ function passwordLength() {
     passwordLength();
   }
 }
+
+// Asks user if they want lowercase based on if they choose "Okay" or "CANCEL".
+function passwordLowercase() {
+  if (confirm("Would you like lowercase included in your password? \n Choose 'OK' to include lowercase. \n Choose 'Cancel' for no lowercase.")) {
+    password.push(lowercase);
+    console.log("lowercase included", password);
+    return;
+  }
+  else {
+    console.log("no lowercase");
+    return;
+  }
+}
+
 
 
 
