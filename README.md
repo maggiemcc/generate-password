@@ -12,7 +12,7 @@ This project was created to help employees, with access to sensitive data, creat
 [Click to view my deployed portfolio GitHub Page](https://maggiemcc.github.io/generate-password/)
 
 ## Screenshot
-![](./Develop/screenshot.png)
+![](./resources/screenshot.png)
 
 
 GIVEN I need a new, secure password:
