@@ -1,9 +1,10 @@
 // Assignment code here
-// Get references to the #generate element
+// Get references to the #generate element & variables
 var generateBtn = document.querySelector("#generate");
 var password = [];
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numeric = "1234567890";
 
 // Write password to the #password input
 function writePassword() {
@@ -12,11 +13,12 @@ function writePassword() {
   passwordText.value = password;
 }
 
-
+// Will run through each function to ask user prompts
 function generatePassword() {
   passwordLength();
   passwordLowercase();
-  passwordUppercase()
+  passwordUppercase();
+  passwordNumeric();
 }
 
   // Asks user for desired password length.
@@ -38,7 +40,7 @@ function passwordLength() {
 
 // Asks user if they want lowercase based on if they choose "Okay" or "CANCEL".
 function passwordLowercase() {
-  if (confirm("Would you like lowercase included in your password? \n Choose 'OK' to include lowercase. \n Choose 'Cancel' for no lowercase.")) {
+  if (confirm("Would you like lowercase letters included in your password? \n Choose 'OK' to include lowercase. \n Choose 'Cancel' for no lowercase.")) {
     password.push(lowercase);
     console.log("lowercase included", password);
     return;
@@ -51,7 +53,7 @@ function passwordLowercase() {
 
 // Asks user if they want uppercase based on if they choose "Okay" or "CANCEL".
 function passwordUppercase() {
-  if (confirm("Would you like lowercase included in your password? \n Choose 'OK' to include uppercase. \n Choose 'Cancel' for no uppercase.")) {
+  if (confirm("Would you like uppercase letters included in your password? \n Choose 'OK' to include uppercase. \n Choose 'Cancel' for no uppercase.")) {
     password.push(uppercase);
     console.log("Uppercase included", password);
     return;
@@ -62,7 +64,18 @@ function passwordUppercase() {
   }
 }
 
-
+// Asks user if they want numeric based on if they choose "Okay" or "CANCEL".
+function passwordNumeric() {
+  if (confirm("Would you like numbers included in your password? \n Choose 'OK' to include numbers. \n Choose 'Cancel' for no numbers.")) {
+    password.push(numeric);
+    console.log("Numeric included", password);
+    return;
+  }
+  else {
+    console.log("Numeric NOT included", password);
+    return;
+  }
+}
 
 
 // Add event listener to generate button
