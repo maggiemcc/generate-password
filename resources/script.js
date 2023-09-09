@@ -27,9 +27,9 @@ function passwordLength() {
 
   // Checks for correct length
   if (userLength >= 8 && userLength <= 128) {
-    console.log("passowrd length --->", userLength);
+    console.log("password length --->", userLength);
     passwordLength = userLength;
-    console.log(passwordLength);
+    alert(`You chose your password length to be ${userLength} characters long`);
     return;
   } else {
     console.log("try again--->", userLength)
@@ -42,10 +42,12 @@ function passwordLength() {
 function passwordLowercase() {
   if (confirm("Would you like lowercase letters included in your password? \n Choose 'OK' to include lowercase. \n Choose 'Cancel' for no lowercase.")) {
     password.push(lowercase);
+    alert("Lowercase will be included in your password.");
     console.log("lowercase included", password);
     return;
   }
   else {
+    alert("Lowercase will NOT be included in your password.");
     console.log("Lowercase NOT included", password);
     return;
   }
@@ -55,10 +57,12 @@ function passwordLowercase() {
 function passwordUppercase() {
   if (confirm("Would you like uppercase letters included in your password? \n Choose 'OK' to include uppercase. \n Choose 'Cancel' for no uppercase.")) {
     password.push(uppercase);
+    alert("Uppercase will be included in your password.");
     console.log("Uppercase included", password);
     return;
   }
   else {
+    alert("Uppercase will NOT be included in your password.");
     console.log("Uppercase NOT included", password);
     return;
   }
@@ -68,10 +72,12 @@ function passwordUppercase() {
 function passwordNumeric() {
   if (confirm("Would you like numbers included in your password? \n Choose 'OK' to include numbers. \n Choose 'Cancel' for no numbers.")) {
     password.push(numeric);
+    alert("Numbers will be included in your password.");
     console.log("Numeric included", password);
     return;
   }
   else {
+    alert("Numbers will NOT be included in your password.");
     console.log("Numeric NOT included", password);
     return;
   }
