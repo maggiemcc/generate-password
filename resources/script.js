@@ -5,6 +5,7 @@ var password = [];
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numeric = "1234567890";
+var special = "!@#$%^&*"
 
 // Write password to the #password input
 function writePassword() {
@@ -19,6 +20,7 @@ function generatePassword() {
   passwordLowercase();
   passwordUppercase();
   passwordNumeric();
+  passwordSpecial();
 }
 
   // Asks user for desired password length.
@@ -79,6 +81,21 @@ function passwordNumeric() {
   else {
     alert("Numbers will NOT be included in your password.");
     console.log("Numeric NOT included", password);
+    return;
+  }
+}
+
+// Asks user if they want special characters based on if they choose "Okay" or "CANCEL".
+function passwordSpecial() {
+  if (confirm("Would you like special characters included in your password? \n Choose 'OK' to include. \n Choose 'Cancel' for no special characters.")) {
+    password.push(special);
+    alert("special characters will be included in your password.");
+    console.log("special characters included", password);
+    return;
+  }
+  else {
+    alert("special characters will NOT be included in your password.");
+    console.log("special characters NOT included", password);
     return;
   }
 }
