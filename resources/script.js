@@ -71,7 +71,7 @@ function passwordSpecial() {
 
 // Creates a new password based on the previous answers given by users from prompts.
 function userPassword() {
-  // Make the password a string for math random
+  // Make the createPassword a new string by concatenating elements from the array.
   var passwordTogether = createPassword.join("");
 
   // Get random characters from the string using charAt (used to return character from specified index) & math random.
