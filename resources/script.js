@@ -89,6 +89,9 @@ function userPassword() {
   // Moved code from function writePassword
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
+  var newPasswordText = document.querySelector("#refreshPage");
+  newPasswordText.setAttribute("style", "text-align: center;");
+  newPasswordText.textContent = "Refresh page to generate new password.";
 }
 
 // Add event listener to generate button
