@@ -21,6 +21,7 @@ function generatePassword() {
   passwordUppercase();
   passwordNumeric();
   passwordSpecial();
+  userPassword();
 }
 
   // Asks user for desired password length.
@@ -29,12 +30,12 @@ function passwordLength() {
 
   // Checks for correct length
   if (userLength >= 8 && userLength <= 128) {
-    console.log("password length --->", userLength);
+    // console.log("password length --->", userLength);
     passwordLength = userLength;
     alert(`You chose your password length to be ${userLength} characters long`);
     return;
   } else {
-    console.log("try again--->", userLength)
+    // console.log("try again--->", userLength)
     alert("Please try again, your password was too short or long. \n Must be between 8 and 128 characters.")
     passwordLength();
   }
@@ -44,13 +45,13 @@ function passwordLength() {
 function passwordLowercase() {
   if (confirm("Would you like lowercase letters included in your password? \n Choose 'OK' to include lowercase. \n Choose 'Cancel' for no lowercase.")) {
     password.push(lowercase);
-    alert("Lowercase will be included in your password.");
-    console.log("lowercase included", password);
+    // alert("Lowercase will be included in your password.");
+    // console.log("lowercase included", password);
     return;
   }
   else {
-    alert("Lowercase will NOT be included in your password.");
-    console.log("Lowercase NOT included", password);
+    // alert("Lowercase will NOT be included in your password.");
+    // console.log("Lowercase NOT included", password);
     return;
   }
 }
@@ -59,13 +60,13 @@ function passwordLowercase() {
 function passwordUppercase() {
   if (confirm("Would you like uppercase letters included in your password? \n Choose 'OK' to include uppercase. \n Choose 'Cancel' for no uppercase.")) {
     password.push(uppercase);
-    alert("Uppercase will be included in your password.");
-    console.log("Uppercase included", password);
+    // alert("Uppercase will be included in your password.");
+    // console.log("Uppercase included", password);
     return;
   }
   else {
-    alert("Uppercase will NOT be included in your password.");
-    console.log("Uppercase NOT included", password);
+    // alert("Uppercase will NOT be included in your password.");
+    // console.log("Uppercase NOT included", password);
     return;
   }
 }
@@ -74,13 +75,13 @@ function passwordUppercase() {
 function passwordNumeric() {
   if (confirm("Would you like numbers included in your password? \n Choose 'OK' to include numbers. \n Choose 'Cancel' for no numbers.")) {
     password.push(numeric);
-    alert("Numbers will be included in your password.");
-    console.log("Numeric included", password);
+    // alert("Numbers will be included in your password.");
+    // console.log("Numeric included", password);
     return;
   }
   else {
-    alert("Numbers will NOT be included in your password.");
-    console.log("Numeric NOT included", password);
+    // alert("Numbers will NOT be included in your password.");
+    // console.log("Numeric NOT included", password);
     return;
   }
 }
@@ -89,15 +90,32 @@ function passwordNumeric() {
 function passwordSpecial() {
   if (confirm("Would you like special characters included in your password? \n Choose 'OK' to include. \n Choose 'Cancel' for no special characters.")) {
     password.push(special);
-    alert("special characters will be included in your password.");
-    console.log("special characters included", password);
+    // alert("special characters will be included in your password.");
+    // console.log("special characters included", password);
     return;
   }
   else {
-    alert("special characters will NOT be included in your password.");
-    console.log("special characters NOT included", password);
+    // alert("special characters will NOT be included in your password.");
+    // console.log("special characters NOT included", password);
     return;
   }
+}
+
+// Creates a new password based on the previous answers given by users from prompts.
+function userPassword () {
+  // Make the password a string:
+  var passwordTogether = password.join("");
+
+  // Get random characters from the variable passwordTogether using charAt (used to return character from specified index) & math floor & math random.
+  function getRandomCharacters(length){
+    var newPassword = "";
+    for (var i = 0; i < length; i++){
+      newPassword += passwordTogether.charAt(Math.floor(Math.random() * passwordTogether.length));
+    }
+    return newPassword;
+  }
+  console.log("newPassword:", getRandomCharacters(passwordLength));
+  return;
 }
 
 
