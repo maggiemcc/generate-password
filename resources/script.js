@@ -10,6 +10,8 @@ var special = "!?@#$%^&*"
 
 // Write password to the #password input
 function writePassword() {
+  // resets password array after clicking button for new password.
+  createPassword = [];
   generatePassword();
 }
 
@@ -50,6 +52,7 @@ function passwordLowercase() {
 function passwordUppercase() {
   if (confirm("Would you like UPPERCASE letters included in your password? \n 'OK' to include uppercase. \n 'Cancel' for no uppercase.")) {
     createPassword.push(uppercase);
+    console.log("uppercase:",)
   }
 }
 
@@ -65,12 +68,14 @@ function passwordSpecial() {
   if (confirm("Would you like SPECIAL CHARACTERS included in your password? \n 'OK' to include special characters. \n 'Cancel' for no special characters.")) {
     createPassword.push(special);
   }
-
   // If nothing chosen, user will be assigned random password using all character types.
   else {
     if (createPassword.length === 0) {
       alert("You didn't select any character types. \n Because you selected none of the character options a random password will be assigned to you using all of them.");
       createPassword.push(lowercase, uppercase, numeric, special);
+      console.log("taken from")
+    } else {
+      return;
     }
   }
 }
@@ -79,6 +84,7 @@ function passwordSpecial() {
 function createUserPassword() {
   // Make the password a string for math random
   var passwordTogether = createPassword.join("");
+  console.log(passwordTogether);
 
   // Get random characters from the string using charAt (used to return character from specified index) & math random.
   function getRandomCharacters(length) {
