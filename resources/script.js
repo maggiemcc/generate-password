@@ -2,6 +2,7 @@
 // Get references to the #generate element & variables
 var generateBtn = document.querySelector("#generate");
 var createPassword = [];
+var userPasswordLength = "";
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numeric = "1234567890";
@@ -19,58 +20,63 @@ function generatePassword() {
   passwordUppercase();
   passwordNumeric();
   passwordSpecial();
-  userPassword();
+  createUserPassword();
 }
 
 // Asks user for desired password length.
 function passwordLength() {
-  var userLength = window.prompt("Choose your password length. \n It must be a minumum of 8 and maximum of 128 characters. \n Ex: 30.");
-
+  var userInputLength = window.prompt("Choose your password length. \n It must be a minumum of 8 and maximum of 128 characters. \n Ex: 30.");
   // Checks for correct length
-  if (userLength >= 8 && userLength <= 128) {
-    passwordLength = userLength;
-  } else if (userLength < 8) {
-    alert("Please try again, your password was too short. \n Must not be less than 8.");
-    passwordLength();
-  } else if (userLength > 128) {
+  if (userInputLength > 128) {
     alert("Please try again, your password was too long. \n Must not be greater than 128.");
     passwordLength();
-  } else {
-    alert("Please try again. Enter a number between 8 and 128.");
+  } else if (userInputLength < 8) {
+    alert("Please try again, your password was too short. \n Must not be less than 8.");
     passwordLength();
+  } else {
+    // assign new length to variable
+    userPasswordLength = userInputLength;
   }
 }
 
 // Asks user if they want lowercase based on if they choose "Ok" or "CANCEL". Will add lowercase if Ok is selected.
 function passwordLowercase() {
-  if (confirm("Would you like lowercase letters included in your password? \n Choose 'OK' to include lowercase. \n Choose 'Cancel' for no lowercase.")) {
+  if (confirm("Would you like LOWERCASE letters included in your password? \n 'OK' to include lowercase. \n 'Cancel' for no lowercase.")) {
     createPassword.push(lowercase);
   }
 }
 
 // Asks user if they want uppercase based on if they choose "Okay" or "CANCEL". Will add uppercase if Ok is selected.
 function passwordUppercase() {
-  if (confirm("Would you like uppercase letters included in your password? \n Choose 'OK' to include uppercase. \n Choose 'Cancel' for no uppercase.")) {
+  if (confirm("Would you like UPPERCASE letters included in your password? \n 'OK' to include uppercase. \n 'Cancel' for no uppercase.")) {
     createPassword.push(uppercase);
   }
 }
 
 // Asks user if they want numeric based on if they choose "Okay" or "CANCEL". Will add numbers if Ok is selected.
 function passwordNumeric() {
-  if (confirm("Would you like numbers included in your password? \n Choose 'OK' to include numbers. \n Choose 'Cancel' for no numbers.")) {
+  if (confirm("Would you like NUMBERS included in your password? \n 'OK' to include numbers. \n 'Cancel' for no numbers.")) {
     createPassword.push(numeric);
   }
 }
 
 // Asks user if they want special characters based on if they choose "Okay" or "CANCEL" .Will add special characters if Ok is selected.
 function passwordSpecial() {
-  if (confirm("Would you like special characters included in your password? \n Choose 'OK' to include. \n Choose 'Cancel' for no special characters.")) {
+  if (confirm("Would you like SPECIAL CHARACTERS included in your password? \n 'OK' to include special characters. \n 'Cancel' for no special characters.")) {
     createPassword.push(special);
+  }
+
+  // If nothing chosen, user will be assigned random password using all character types.
+  else {
+    if (createPassword.length === 0) {
+      alert("You didn't select any character types. \n Because you selected none of the character options a random password will be assigned to you using all of them.");
+      createPassword.push(lowercase, uppercase, numeric, special);
+    }
   }
 }
 
 // Creates a new password based on the previous answers given by users from prompts.
-function userPassword() {
+function createUserPassword() {
   // Make the password a string for math random
   var passwordTogether = createPassword.join("");
 
@@ -84,14 +90,11 @@ function userPassword() {
   }
 
   // set password length equal to length chosen by user made from random characters chosen from getRandomCharacters.
-  var password = getRandomCharacters(passwordLength);
+  var password = getRandomCharacters(userPasswordLength);
 
   // Moved code from function writePassword
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-  var newPasswordText = document.querySelector("#refreshPage");
-  newPasswordText.setAttribute("style", "text-align: center;");
-  newPasswordText.textContent = "Refresh page to generate new password.";
 }
 
 // Add event listener to generate button
