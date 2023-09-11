@@ -52,7 +52,6 @@ function passwordLowercase() {
 function passwordUppercase() {
   if (confirm("Would you like UPPERCASE letters included in your password? \n 'OK' to include uppercase. \n 'Cancel' for no uppercase.")) {
     createPassword.push(uppercase);
-    console.log("uppercase:",)
   }
 }
 
@@ -73,7 +72,6 @@ function passwordSpecial() {
     if (createPassword.length === 0) {
       alert("You didn't select any character types. \n Because you selected none of the character options a random password will be assigned to you using all of them.");
       createPassword.push(lowercase, uppercase, numeric, special);
-      console.log("taken from")
     } else {
       return;
     }
