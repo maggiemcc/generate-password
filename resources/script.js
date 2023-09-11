@@ -43,28 +43,28 @@ function passwordLength() {
 
 // Asks user if they want lowercase based on if they choose "Ok" or "CANCEL". Will add lowercase if Ok is selected.
 function passwordLowercase() {
-  if (confirm("Would you like LOWERCASE letters included in your password? \n 'OK' to include lowercase. \n 'Cancel' for no lowercase.")) {
+  if (window.confirm("Would you like LOWERCASE letters included in your password? \n 'OK' to include lowercase. \n 'Cancel' for no lowercase.")) {
     createPassword.push(lowercase);
   }
 }
 
 // Asks user if they want uppercase based on if they choose "Okay" or "CANCEL". Will add uppercase if Ok is selected.
 function passwordUppercase() {
-  if (confirm("Would you like UPPERCASE letters included in your password? \n 'OK' to include uppercase. \n 'Cancel' for no uppercase.")) {
+  if (window.confirm("Would you like UPPERCASE letters included in your password? \n 'OK' to include uppercase. \n 'Cancel' for no uppercase.")) {
     createPassword.push(uppercase);
   }
 }
 
 // Asks user if they want numeric based on if they choose "Okay" or "CANCEL". Will add numbers if Ok is selected.
 function passwordNumeric() {
-  if (confirm("Would you like NUMBERS included in your password? \n 'OK' to include numbers. \n 'Cancel' for no numbers.")) {
+  if (window.confirm("Would you like NUMBERS included in your password? \n 'OK' to include numbers. \n 'Cancel' for no numbers.")) {
     createPassword.push(numeric);
   }
 }
 
 // Asks user if they want special characters based on if they choose "Okay" or "CANCEL" .Will add special characters if Ok is selected.
 function passwordSpecial() {
-  if (confirm("Would you like SPECIAL CHARACTERS included in your password? \n 'OK' to include special characters. \n 'Cancel' for no special characters.")) {
+  if (window.confirm("Would you like SPECIAL CHARACTERS included in your password? \n 'OK' to include special characters. \n 'Cancel' for no special characters.")) {
     createPassword.push(special);
   }
   // If nothing chosen, user will be assigned random password using all character types.
