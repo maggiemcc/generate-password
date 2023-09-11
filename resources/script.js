@@ -70,11 +70,12 @@ function passwordSpecial() {
   // If nothing chosen, user will be assigned random password using all character types.
   else {
     if (createPassword.length === 0) {
-      alert("You didn't select any character types. \n Because you selected none of the character options a random password will be assigned to you using all of them.");
-      createPassword.push(lowercase, uppercase, numeric, special);
-    } else {
-      return;
-    }
+      alert("Please try again. \n You didn't select a character type. \n Please select at least one character type.");
+      passwordLowercase();
+      passwordUppercase();
+      passwordNumeric();
+      passwordSpecial();
+    } 
   }
 }
 
