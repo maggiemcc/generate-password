@@ -29,7 +29,11 @@ function generatePassword() {
 function passwordLength() {
   var userInputLength = window.prompt("Choose your password length. \n It must be a minumum of 8 and maximum of 128 characters. \n Ex: 30.");
   // Checks for correct length
-  if (userInputLength > 128) {
+  if (userInputLength === null) {
+    // Run if user chooses to 'cancel' it will prevent other functions from executing. 
+    throw "User chose to not continue";
+  }
+  else if (userInputLength > 128) {
     alert("Please try again, your password was too long. \n Must not be greater than 128.");
     passwordLength();
   } else if (userInputLength < 8) {
@@ -75,7 +79,7 @@ function passwordSpecial() {
       passwordUppercase();
       passwordNumeric();
       passwordSpecial();
-    } 
+    }
   }
 }
 
