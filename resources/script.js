@@ -71,7 +71,7 @@ function passwordSpecial() {
   if (window.confirm("Would you like SPECIAL CHARACTERS included in your password? \n 'OK' to include special characters. \n 'Cancel' for no special characters.")) {
     createPassword.push(special);
   }
-  // If nothing chosen, user will be assigned random password using all character types.
+  // If nothing is chosen, user will be asked to go back and select a character type(s).
   else {
     if (createPassword.length === 0) {
       alert("Please try again. \n You didn't select a character type. \n Please select at least one character type.");
